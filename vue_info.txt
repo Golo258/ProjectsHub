@@ -1,0 +1,110 @@
+
+
+
+
+Adding vue:
+    1. By package:
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    2. npm
+        npm install vue@next
+    
+    3. vue cli - commandline interface 
+        npm install -g @vue/cli
+        vue creat project_name
+
+    4. vite 
+        npm init vite-app project-name
+
+Project Structure:
+    package.json:
+        dependencies and scripts required for project
+    package-lock.json 
+        installed dependencies from npm
+    
+`   Folders:
+        node_modules:
+            all installed dependencies
+        public:
+            contains static assets (resources)
+            index.html - only html file in vue application
+                no change - vue is controlling the user interface
+            
+        src:
+            here is where we are going to work in a lot
+
+            App.vue 
+                specification of html, js, css responding on UI
+
+            Compononets:
+                App.vue | Hello.vue 
+                    Represents the view which we see in the browser
+
+            assets:
+                images / giffs, and more 
+
+        .vue filetype:
+            uses html-like syntax to describe portion of UI
+            contains three level blocks:
+                template - html
+                script   - data / logic  / js
+                style    - css / styles to template
+
+
+    Compononets:
+        vue is called a SFC - single file component
+
+Vue syntax:
+    Binding text:
+        {{ data_var}}
+        <div>
+            v-text="var" - is assigning data from var into div body 
+    Binding html:
+        div
+            v-html="var" - is converting html syntax from var in div body
+    Binding attritbutes:
+        div 
+            v-bind:id /class /src etc
+
+        Modyfing regular classes by using binded var:
+            var has to be boolean
+            v-bind:class="var && 'regular_class'"
+            3 arguments operators works also
+            :class=" var ? 'class1' : 'class2'
+            array of binded class [ one_class, two_class]
+            applying multi classes under condition
+            :class="{
+                class_name: condition_var,
+                class_name2: condition_var2
+
+            }"
+
+    Binding styles:
+        v-bind:style= "
+        {
+            color : var,
+            'text-decoration': var2,
+            paddingTop : var3,
+        }
+        v-bind:style ="headerStyles"
+
+    Conditional rendering:
+        v-if="var operation "
+        v-else-if
+        v-else
+
+        v-show - if you don't wannt have it at all in html under condition
+
+    Link rendering:
+        v-for   
+        array of strings/ objects/ arrays/
+        Itering strings:
+            v-for="name in names" :key="name"
+        Iterring objects:
+            v-for="name in names" {{ name.attribute1 }}
+
+    Conditional list render:
+     <div v-for="name in namesArray" :key="name">
+        <h2 v-if="name.length % 2 === 0">
+          {{ name }}
+
+    Methods:
