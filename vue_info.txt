@@ -107,4 +107,131 @@ Vue syntax:
         <h2 v-if="name.length % 2 === 0">
           {{ name }}
 
-    Methods:
+    Event handling:
+        v-on directive: or shortcut @
+            v-on:(event that we want to listen)
+                click
+                mouse-over -
+        in methods to get event:
+            method (event){
+                console.log(event)
+            }
+            if there is an argument you:
+                @click="function(argument, $event)
+            method(argument, event){
+                console.log(argument, event)
+            }
+    We can pass many methods for the same event
+        @click = " method1(),  method2()"
+
+    Form handling:
+        Capture inputs:
+            inputs
+            textareas
+            select control
+            checkbox 
+            radio
+        
+        v-model - two way Binding  
+            from modal to view
+            from view to model
+
+        <label for="name">
+        <input id ="name">
+        also <textarea id="name"
+        also select id ="name"
+            <option value>
+
+            name is corresponding with each other
+
+        input checkbox v-model="var = True/False"
+            or setting posible answers True/False
+                true-value= "true-option":
+                false-value= "false-option"
+
+        input withs value take the value as return not boolean
+        Radio :
+                <input type="radio" id="02" value="0-2" v-model="formValues.exprienceYears">
+                <label for="02">0 - 2</label>
+
+        Submit button:
+            form v-on:submit="action"
+
+    Modifiers:
+        v-model.trim - without blank spaceps
+        v-model.number- precion of type
+        v-model.lazy- lazy bind with model
+            after getting out of course the model is changed
+        @submit.prevent
+            <-> event.preventDefault() - not refresh after button submition
+
+        v-on / @keyup.enter / f1
+
+    Other directives:
+        v-once - rendering only ones, useful with static things
+
+        v-pre - not render js, var only {{ name }} literelly 
+
+    Computed Properties:
+         computed : {
+            getFullName() {
+                return something
+
+            }
+         }
+         {{getFullName}}
+
+        Useful methods:
+            Reduce: iterating over each item and perform function based on it 
+                    (accumulator, current_item, current_index, array) =>
+                    {
+                        accumulator += current_item
+                    }
+                returning accumulated object 
+            Map: iterating and changing every element based on the function 
+                ()=> {
+
+                }
+            Filter:
+                creating  a new collection dependence on condition
+                numbers.filter(
+                        numb => numb % 2 == 0
+                        );
+            Foreach:
+                iteration over each element
+                    numbers.forEach((num) => console.log(num));
+            Find: 
+                finding first element which meets requirements
+                    numbers.find((num) => num % 2 === 0);
+
+            Some:   
+                Check whether any of elements meets requirements
+            
+            Every:
+                Check whether every elements meets requirements
+
+        
+        Methods:
+            use when you want to perform operation on demand
+        Computed:
+            use when you want to count dynamically values,
+            automatically updated after data variables are changed
+
+    Computed getter and setter: -- then the computed become an attribute
+
+    Watchers:
+        tracking data variable whether its value is as you set
+            watch : {
+                volume(new_volume){
+                    if ( new_volume conditioon)
+                        do something
+                }
+            }
+            immediate : true, 
+                -> watcher is tracking variable as soon as page is rendered
+                with taking data variable as object with new_value handler
+
+            deep: true  
+                -> watcher is tracking nested variable:
+                like objects: actor: { title: "master, age: 12}
+                with handler
