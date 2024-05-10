@@ -235,3 +235,45 @@ Vue syntax:
                 -> watcher is tracking nested variable:
                 like objects: actor: { title: "master, age: 12}
                 with handler
+    
+    Compononets:
+        .vue file
+            <template> <script> <style>  
+
+        importing components:
+            import Compononet from "path"
+            use: <Compononet/>
+            use its methodes: Compononet.methods.compMethod()
+        components: {
+            componentName
+        }
+        
+        setting props value outside the component
+            props: [
+                'name'
+            ]
+        <componentName name="something" />
+
+    Setting props type:
+        Props : {
+            Attribute : type (example: String)
+        }
+        if its number or boolean 
+        in the definition we have to use v-bind
+            :likes="12" :isPublished="true"
+    Validation:
+         title : {
+                type : String,
+                required : true,
+                default: "eso es muy simple"
+            },
+    Non propo attribute:
+        adding attribute to component:
+            <BlogArticle id="something">
+            by default it set to root div
+                no default set it as:
+                    v-bind="$attrs"
+        inheritAttrs : false
+
+    Provide / Inject:
+        
