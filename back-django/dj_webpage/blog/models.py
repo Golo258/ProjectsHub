@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Post(models.Model):
@@ -14,3 +15,6 @@ class Post(models.Model):
                 f"content: {self.content}. "
                 f"Author {self.author.username} "
                 f"Published on {self.posted_date}")
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
