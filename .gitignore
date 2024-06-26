@@ -1,0 +1,4 @@
+django_info.txt
+sql/database.ini
+**/*.ini
+.idea/*

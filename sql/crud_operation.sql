@@ -10,8 +10,9 @@ CREATE TABLE IF NOT EXISTS tasks (
 );
 
 -- QUERY: insert_data
-INSERT INTO tasks (title, description) VALUES ('Learn SQL', 'Complete the SQL tutorial');
-INSERT INTO tasks (title, description) VALUES ('Build Python App', 'Create a ToDo app with Python and PostgreSQL');
+INSERT INTO tasks (title, description) VALUES
+    ('Learn SQL', 'Complete the SQL tutorial'),
+    ('Build Python App', 'Create a ToDo app with Python and PostgreSQL');
 
 -- QUERY: select_all
 SELECT * FROM tasks;
