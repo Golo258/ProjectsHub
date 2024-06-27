@@ -52,4 +52,5 @@ ADVANCED:
 
 	Security in sql
 	Query optimilizations
-	
+
+

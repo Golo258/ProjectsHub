@@ -1,6 +1,8 @@
 import psycopg2
+import json
 from config import config
 from pathlib import Path
+from tabulate import tabulate
 
 
 class PostgreSQLDatabase:
@@ -47,36 +49,55 @@ class PostgreSQLDatabase:
         return "\n".join(sub_query)
 
     def perform_query(self, query, params=None, return_required=False):
+        cursor = self.connection.cursor()
         try:
-            cursor = self.connection.cursor()
             cursor.execute(query, params)
             if return_required:
                 fetch_result = cursor.fetchall()
-                return fetch_result
+                headers = [cur_desc[0] for cur_desc in cursor.description]
+                return headers, fetch_result
             else:
                 self.connection.commit()
-            cursor.close()
         except Exception as error:
-            assert f"Error executing query {error}"
+            print(f"Error executing query: \n[{error}]")
+            self.connection.rollback()
+        finally:
+            cursor.close()
 
 
-if __name__ == "__main__":
+def execute_queries():
     query_files = {
         "crud": "crud_operation.sql"
     }
     queries_fun = {
         "CREATE": "create_table",
-        "INSERT": "insert_data",
+        "INSERT": "remove",
         "SELECT": ["select_all", True],
+        "ORDER": ['regex_wildcard', True]
     }
     db = PostgreSQLDatabase(query_files)
     queries = db.get_sql_file_queries("crud")
 
     for operation in queries_fun.values():
-        if isinstance(operation,list):
+        if isinstance(operation, list):
             sub_query = db.get_sub_query(queries, operation[0])
-            result = db.perform_query(sub_query, return_required=operation[1])
-            print(result)
+            headers, result = db.perform_query(sub_query, return_required=operation[1])
+            print(tabulate(result, headers, tablefmt="psql"))
         else:
             sub_query = db.get_sub_query(queries, operation)
             result = db.perform_query(sub_query)
+
+
+def parse_queries_json(file_path, query_action):
+    with open(file_path, "r") as file:
+        content = json.load(file)
+    queries = [
+        action['operation'] for action in content['Queries'][query_action]
+        if action['operation'] is not None
+    ]
+    return queries
+
+
+if __name__ == "__main__":
+    content = parse_queries_json("queries_operation.json", "Filtering")
+    print(content)
