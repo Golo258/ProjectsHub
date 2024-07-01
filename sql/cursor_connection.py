@@ -87,7 +87,6 @@ def execute_queries():
             sub_query = db.get_sub_query(queries, operation)
             result = db.perform_query(sub_query)
 
-
 def parse_queries_json(file_path, query_action):
     with open(file_path, "r") as file:
         content = json.load(file)

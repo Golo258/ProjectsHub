@@ -1,7 +1,7 @@
 
 
 -- QUERY: create_table
-CREATE TABLE IF NOT EXISTS tasks (
+CREATE TABLE dS tasks (
     id SERIAL PRIMARY KEY,
     title VARCHAR(200) NOT NULL UNIQUE,
     description TEXT,
