@@ -14,7 +14,7 @@ public class TaskManagerApp {
         );
         manager.presentOption();
         boolean isRunning = true;
-        while(isRunning){
+        while (isRunning) {
             isRunning = manager.runOptions();
         }
     }

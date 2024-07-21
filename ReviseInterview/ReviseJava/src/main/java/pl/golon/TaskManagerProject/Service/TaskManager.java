@@ -39,16 +39,13 @@ public class TaskManager {
 
     public boolean runOptions() throws IOException {
         System.out.println("Enter job which you want to do: ");
-        String inputChoice = null;
         try {
-            inputChoice = this.reader.readLine();
-            if (inputChoice.contains("Quit")){
+            String inputChoice = this.reader.readLine();
+            if (inputChoice.equalsIgnoreCase("Quit")) {
                 return false;
-            }
-            else{
-                String finalInputChoice = inputChoice;
+            } else {
                 options.entrySet().stream()
-                        .filter(entry -> entry.getKey().contains(finalInputChoice.toLowerCase()))
+                        .filter(entry -> entry.getKey().contains(inputChoice.toLowerCase()))
                         .findFirst()
                         .ifPresent(
                                 entry -> {
@@ -77,14 +74,14 @@ public class TaskManager {
         }
         System.out.println("Enter task title and then description");
         try {
-            Task task = new Task(
-                    this.reader.readLine(), this.reader.readLine()
-            );
+            Task task = new Task(this.reader.readLine(), this.reader.readLine());
             this.verifyLastTaskId(task);
-            System.out.println("Your new created task " + task);
+            System.out.println("Your new created task: " + task);
             this.userTasks.add(task);
+        } catch (IOException exception) {
+            System.out.println("Error reading input: " + exception.getMessage());
         } catch (Exception exception) {
-            System.out.println(exception.getMessage());
+            System.out.println("Error: " + exception.getMessage());
         }
     }
 

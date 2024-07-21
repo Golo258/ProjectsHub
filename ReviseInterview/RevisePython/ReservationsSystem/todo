@@ -49,3 +49,29 @@ TODO:
         Klasa Task: reprezentująca zadanie.
         Klasa TaskManager: zarządzająca listą zadań.
         Klasa TaskManagerApp: zawierająca metodę główną do interakcji z użytkownikiem.
+
+#----------------------
+Python project:
+    Cel projektu
+        Stwórz aplikację konsolową do zarządzania rezerwacjami pokoi hotelowych.
+         Użytkownik (pracownik hotelu) będzie mógł:
+            dodawać nowe rezerwacje,
+            wyświetlać wszystkie rezerwacje,
+            modyfikować istniejące rezerwacje
+            usuwać rezerwacje
+
+Wymagania:
+    Rezerwacja: (numer pokoju, imie, nazwisko klienta,data za/wymeldowania)
+
+    Wyswietlanie rezerwacji: z detalami
+
+    Modyfikowanie/ usuwanie rezerwacji:
+        na podstawie nr pokoju , id rezerwacji
+
+    Zapisywanie/Ładowanie do pliku listy rezerwacji
+
+Struktura:
+    Reservation - klasa reprezentujaca rezerwacje
+    HotelSystem - zarzadzanie lista rezerwacji
+    Main - Skrypt główny, logika interakcji z userem
+     
