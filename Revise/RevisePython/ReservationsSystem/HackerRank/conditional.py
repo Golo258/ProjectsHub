@@ -117,23 +117,25 @@ def perform_actions(number_of_actions: int):
         match action:
             case "insert":
                 base_list.insert(object_elements[0], object_elements[1])
-            case  "append":
+            case "append":
                 base_list.append(object_elements[0])
             case "remove":
                 base_list.remove(object_elements[0])
             case "pop":
                 base_list.pop()
-            case  "reverse":
+            case "reverse":
                 base_list.reverse()
             case "sort":
                 base_list.sort()
             case "print":
                 print(base_list)
 
+
 def get_input_if_its_None(line):
     if line is None:
         line = input()
     return line
+
 
 def swap_case(word):
     word = get_input_if_its_None(word)
@@ -146,9 +148,10 @@ def swap_case(word):
 
     return changed_word
 
+
 def split_and_join(line):
     line = get_input_if_its_None(line)
-    splited_line= line.split(" ")
+    splited_line = line.split(" ")
     joined_splited_line = "-".join(splited_line)
     return joined_splited_line
 
@@ -159,7 +162,10 @@ def mutate_string(string, position, character):
     return "".join(converted)
 
 
-def count_substring(string, sub_string):
+def count_substring():
+    string = "ABCDCDC"  # input().strip()
+    sub_string = "CDC"  # input().strip()
+
     number_of_occurance = 0
     for index in range(0, len(string)):
         if string[index] in sub_string:
@@ -169,15 +175,129 @@ def count_substring(string, sub_string):
     return number_of_occurance
 
 
-if __name__ == '__main__':
-    string = "ABCDCDC" #input().strip()
-    sub_string = "CDC" #input().strip()
+def string_validatiors(text=None):
+    if text is None:
+        text = "qA2"
+    # isalnum -  (az AZ 0-9) | isalpha - (az AZ) |    isDigits (0-9)
+    # any takes generator, if any of the valiuse inside are true it returns true
+    print(any(char.isalnum() for char in text))
+    print(any(char.isalpha() for char in text))
+    print(any(char.isdigit() for char in text))
+    print(any(char.islower() for char in text))
+    print(any(char.isupper() for char in text))
 
-    count = count_substring(string, sub_string)
-    print(count)
 
-# ABCDCDC
-# CDC
+def text_alignment():
+    print("World".ljust(20, "_"))
+    print("World".center(20, "_"))
+    print("World".rjust(20, "_"))
+
+    def print_doormat():
+        n = int(input().split()[0])
+        for i in range(n // 2):
+            print(((i * 2 + 1) * '.|.').center(3 * n, '-'))
+
+        print('WELCOME'.center(3 * n, '-'))
+
+        for i in reversed(range(n // 2)):
+            print(((i * 2 + 1) * '.|.').center(3 * n, '-'))
+
+    print_doormat()
+
+
+def text_wrap():
+    import textwrap
+    string = "Mojaitwoja mama lubi placki ale nie za duzo"
+    print(textwrap.wrap(string, 8))  # creating list of elements based on given width
+    print(textwrap.fill(string, 8))  # create a text with \n striped by given width
+
+
+def string_formatting():
+    # your code goes here
+    number = int(input())
+    width = len(bin(number)) - 2
+    for index in range(1, number + 1):
+        decimal = str(index).rjust(width)
+        octal = oct(index)[2:].rjust(width)
+        hexadecimal = hex(index)[2:].upper().rjust(width)
+        binary = bin(index)[2:].rjust(width)
+
+        print(f"{decimal} {octal} {hexadecimal} {binary}")
+
+
+import string
+
+
+def alphabet_rangoli():
+    chars_count = 5  # int(input())
+    alfa_chars = list(string.ascii_lowercase)
+    first_letter = alfa_chars[chars_count]
+    pattern = generate_pattern(chars_count, 2)
+
+    # for index in range(1, chars_count + 1):
+    #     sequence = list(alfa_chars[chars_count])
+    #     print((count_of_alphabet_letters[index - index]))
+
+
+def generate_pattern(size, row):
+    alphabet_chars = list(string.ascii_lowercase)
+    pattern = []
+
+    for i in range(1, row + 1):
+        pattern.append(alphabet_chars[size - i])
+    return pattern
+
+
+def capitalize_name():
+    full_name = "chris alan"
+    seperated_name = full_name.split(" ")
+    lowercase_names = filter(lambda name: name[0].islower(), seperated_name)
+    capitalized_names = map(lambda name: name.capitalize(), lowercase_names)
+    return " ".join(list(capitalized_names))
+
+
+def minion_game():
+    given_word = "BANANA"
+    vowels = {'a', 'e', 'i', 'o', 'u'}  # kevin
+    consonants = set('bcdfghjklmnpqrstvwxyz')  # stuart
+    stuart_possible_start, kevin_possible_start = [], []
+    for letter in given_word:
+        if letter.lower() in vowels and letter not in kevin_possible_start:
+            kevin_possible_start.append(letter)
+        elif letter.lower() in consonants and letter not in stuart_possible_start:
+            stuart_possible_start.append(letter)
+
+    posible_stuart_words = generate_possible_words(stuart_possible_start, given_word)
+    posible_kevin_words = generate_possible_words(kevin_possible_start, given_word)
+    stuart_score =  generate_scores(posible_stuart_words, given_word)
+    kevin_scores =  generate_scores(posible_kevin_words, given_word)
+
+    if stuart_score > kevin_scores:
+        print(f"Stuart {stuart_score}")
+    else:
+        print(f"Kevin {kevin_scores}")
+
+
+def generate_possible_words(first_letters, given_word):
+    possible_words = []
+    for character in first_letters:
+        index_of_start_letter = given_word.find(character)
+        for end in range(index_of_start_letter + 1, len(given_word) + 1):
+            possible_words.append(
+                given_word[index_of_start_letter: end]
+            )
+
+    return possible_words
+
+def generate_scores(possible_words, given_word :str):
+    occurance = {}
+    for word in possible_words:
+        count_of_word_occurence = given_word.count(word)
+        occurance[word] = count_of_word_occurence
+
+    sum_of_scores = sum(occurance.values())
+    return sum_of_scores
+
 
 def run_all():
     n = int(input().strip())
@@ -187,8 +307,13 @@ def run_all():
     find_runner_up()
     find_lowest_student_grades()
     count_average_of_students_scores()
+    string_validatiors()
+    text_alignment()
+    text_wrap()
+    alphabet_rangoli()
+    names = capitalize_name()
+    print(names)
 
 
-# if __name__ == '__main__':
-#     # run_all()
-#     perform_actions(int(input()))
+if __name__ == '__main__':
+    minion_game()

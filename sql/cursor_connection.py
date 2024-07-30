@@ -98,5 +98,6 @@ def parse_queries_json(file_path, query_action):
 
 
 if __name__ == "__main__":
-    content = parse_queries_json("queries_operation.json", "Filtering")
-    print(content)
+    # content = parse_queries_json("queries_operation.json", "Filtering")
+    # print(content)
+    execute_queries()

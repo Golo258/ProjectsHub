@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj/Edycja Książki</title>
+</head>
+<body>
+<h1>{% if form.instance.pk %}Edytuj Książkę{% else %}Dodaj nową książkę{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz</button>
+</form>
+<a href="{% url 'book_list' %}">Wróć do listy książek</a>
+</body>
+</html>

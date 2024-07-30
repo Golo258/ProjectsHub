@@ -1,0 +1,26 @@
+
+[TODO]
+    Django: Framework webowy, który umożliwia szybkie tworzenie aplikacji internetowych.
+        Instalacja: pip install django
+        Tworzenie projektu: django-admin startproject myproject
+        Tworzenie aplikacji: python manage.py startapp myapp
+        Model-View-Template (MVT): struktura aplikacji w Django.
+        Modele: definiowanie struktur bazy danych.
+        Widoki: logika aplikacji.
+        Szablony: generowanie HTML.
+   ORM (Object-Relational Mapping): System Django ORM pozwala na interakcję z bazą danych za pomocą obiektów Python.
+       Definiowanie modeli: klasy Python odpowiadające tabelom w bazie danych.
+       Migracje: python manage.py makemigrations i python manage.py migrate do zarządzania zmianami w bazie danych.
+       Zapytania ORM: Model.objects.all(), Model.objects.filter(), itp.
+   Admin Panel: Wbudowany panel administracyjny do zarządzania danymi aplikacji.
+       Konfiguracja: dodawanie modeli do admina za pomocą admin.site.register(ModelName).
+   Formularze: Zarządzanie danymi wejściowymi od użytkowników.
+       Formularze Django: tworzenie klas formularzy za pomocą forms.Form lub forms.ModelForm.
+       Walidacja danych: wbudowane mechanizmy walidacji.
+   Autoryzacja i uwierzytelnianie: Systemy logowania i zarządzania użytkownikami.
+       System użytkowników: User model, logowanie, rejestracja, resetowanie hasła.
+       Zabezpieczenia: middlewares, ograniczanie dostępu do widoków.
+   REST API: Tworzenie API za pomocą Django REST framework (DRF).
+       Instalacja DRF: pip install djangorestframework
+       Serializery: definiowanie sposobu, w jaki dane są serializowane.
+       Widoki: APIView, GenericAPIView, ViewSets.
