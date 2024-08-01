@@ -1,4 +1,4 @@
-package org.example.first;
+package pl.golon.TaskManagerProject.Base;
 
 import java.io.BufferedReader;
 import java.io.IOException;
