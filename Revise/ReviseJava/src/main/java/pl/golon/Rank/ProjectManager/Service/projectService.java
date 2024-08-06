@@ -34,8 +34,7 @@ public class projectService {
         catch (Exception exception){
             System.out.println(exception.getMessage());
         }
-        finally {
-        }
+
     }
      static void runSelectQuery(String modelName, Object modelInstance, SQLiteManager manager) throws SQLException {
         String selectQuery= "SELECT * FROM " + modelName;
