@@ -1,14 +1,16 @@
 package pl.golon.Rank.ProjectManager.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import pl.golon.Rank.LightSQL;
-import pl.golon.Rank.ProjectManager.Models.JsonInsertedData;
+import pl.golon.Rank.ProjectManager.Models.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
@@ -139,26 +141,39 @@ public class SQLiteManager {
         }
         givenQuery += argumentsBuilder.toString();
         System.out.println(givenQuery);
-        String valuesData = getInsertionDataFromJsonFile("Static/dummy_data.json", modelName);
+        ArrayList<Object>  modelsList = getInsertionModelsFromJsonFile("Static/dummy_data.json", modelName);
+        if (modelsList != null){
+
+        }
         return "";
 
     }
-    String getInsertionDataFromJsonFile(String filePath, String modelName) {
+    ArrayList<Object> getInsertionModelsFromJsonFile(String filePath, String modelName) {
         try{
             InputStream inputStream = SQLiteManager.class.getClassLoader().getResourceAsStream(
                     filePath
             );
             assert inputStream != null;
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
             JsonInsertedData [] dataArray = mapper.readValue(inputStream, JsonInsertedData[].class);
-            for(JsonInsertedData data: dataArray){
-                System.out.println(data);
+            for(JsonInsertedData jsonData: dataArray){
+                if (jsonData.getTable().contains(modelName)){
+                    Object wantedSQLModel = getClassByTableName(modelName);
+                    ArrayList<Object> jsonModels = new ArrayList<>(jsonData.getData());
+                    System.out.println(jsonModels);
+                    for (Object jsonModel : jsonModels) {
+                        jsonModel = mapper.convertValue(jsonModel, wantedSQLModel.getClass());
+                        System.out.println(jsonModel);
+                    }
+                    return jsonModels;
+                }
             }
+            return null;
         }
         catch (IOException exception){
             System.out.println(exception.getMessage());
         }
-        return "";
     }
     void parseAdditionalRecordsFromCSV() {
         System.out.println("Siemaono");
@@ -180,4 +195,14 @@ public class SQLiteManager {
         this.statement = statement;
     }
 
+    public Object getClassByTableName(String tableName) {
+        Object searchedObject = null;
+        switch (tableName){
+            case "employees" -> {searchedObject = new Employee();}
+            case "projects" -> {searchedObject = new Project();}
+            case "tasks" -> {searchedObject =  new Task();}
+            case "ProjectAssignments" -> {searchedObject =  new ProjectAssignment();}
+        };
+        return searchedObject;
+    }
 }
