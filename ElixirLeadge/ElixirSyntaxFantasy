@@ -1,0 +1,24 @@
+
+Definiowanie modułu:
+    defmodule Nazwa do
+        // code
+    end
+
+Definiowanie struktury:
+     defstruct [:id, :title, :description, :status]
+
+Definiowanie funkcji:
+    def func do  | func(arg1, arg2)
+    end
+    funkcja prywatna:
+        defp fun_priv(_title)  do
+        end
+
+       _title - argument nie uzyty ale bez warninga
+
+    def func(arg \\ :defaultValue) do
+    end
+
+    funkcja anonimowa:
+        fn x -> x * x end
+        &( &1 * &1)

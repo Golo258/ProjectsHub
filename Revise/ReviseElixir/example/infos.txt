@@ -1,0 +1,10 @@
+
+
+Elixir syntax:
+    import external package
+        alias UUID 
+
+
+    variable init:
+        name = value 
+        
