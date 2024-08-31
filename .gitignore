@@ -2,7 +2,6 @@ django_info.txt
 sql/database.ini
 **/*.ini
 **/.idea/*
-todo
 **/__pycache__/
 **/__pycache__/**
 *.pyc
