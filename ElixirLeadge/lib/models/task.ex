@@ -1,10 +1,10 @@
-defmodule TaskModel do
+defmodule Models.TaskModel do
   defstruct [:id, :title, :description, :status]
 
 
   def new(id, title, description, status \\ :incomplete) do
     if valid_title?(title) and valid_description?(description) and valid_status?(status) do
-      %TaskModel{
+      %Models.TaskModel{
         id: id,
         title: title,
         description: description,
