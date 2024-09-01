@@ -30,12 +30,12 @@
 - [x] **Listy:**
     - [x] Operacje na listach: map, reduce, filter.
     - [x] Wzorce na listach (`[head | tail]`).
-- [ ] **Mapy i Słowniki:**
-    - [ ] Tworzenie i aktualizowanie map.
-    - [ ] Dostęp do wartości i wzorce na mapach.
-- [ ] **Tuple i Structs:**
-    - [ ] Różnice między tuple i struct.
-    - [ ] Tworzenie i używanie struct.
+- [x] **Mapy i Słowniki:**
+    - [x] Tworzenie i aktualizowanie map.
+    - [x] Dostęp do wartości i wzorce na mapach.
+- [x] **Tuple i Structs:**
+    - [x] Różnice między tuple i struct.
+    - [x] Tworzenie i używanie struct.
 
 ## 4. Concurrency (Współbieżność)
 - [ ] **Procesy:**
@@ -106,7 +106,3 @@
     - [ ] Tworzenie aplikacji na urządzenia IoT.
 - [ ] **Hex i HexDocs:**
     - [ ] Zarządzanie zależnościami i korzystanie z dokumentacji online.
-fasfasf
-    - afas
-    - fa
-    - f

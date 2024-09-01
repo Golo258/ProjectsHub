@@ -59,4 +59,30 @@ defmodule Concepts.Collections do
     reduced_list = Enum.reduce(list, accumulator, fn acc, next -> acc + next end)
     IO.inspect(reduced_list, label: "Reduced list: ")
   end
+
+  def map_examples do
+    _empty_map = %{}
+
+    material_map = %{
+      material: :silver,
+      price: 12.5
+    }
+
+    # update map
+    updated_map = Map.put(material_map, :natural, true)
+    changed_map = Map.put(updated_map, :material, :gold)
+    price_value = Map.get(changed_map, :price)
+    IO.inspect(changed_map[:material], label: "Material value: ")
+    IO.inspect(price_value, label: "Price value: ")
+  end
+
+  def tuple_struct_example do
+    # constant number of elements, indexed, various types allowed
+    tuple = {1, :ok, "circus"}
+    tuple_element = elem(tuple, 1)
+    IO.puts("Tuple element on 1 index: #{tuple_element}")
+    #change element on index
+    changed_tup = put_elem(tuple, 1, :discover)
+    IO.puts("Tuple element on 1 index after change: #{elem(changed_tup,1)}")
+  end
 end
