@@ -19,7 +19,7 @@
 ## 2. Zaawansowane Koncepty Elixira
 - [x] **Comprehensions:**
     - [x] Tworzenie i filtrowanie kolekcji za pomocą comprehensions.
-- [ ] **Metaprogramowanie (Makra):**
+- [x] **Metaprogramowanie (Makra):**
     - [x] Podstawy makr (`defmacro`).
     - [x] Tworzenie własnych makr.
 - [x] **Protokół (`Protocol`):**
@@ -38,15 +38,15 @@
     - [x] Tworzenie i używanie struct.
 
 ## 4. Concurrency (Współbieżność)
-- [ ] **Procesy:**
-    - [ ] Tworzenie procesów (`spawn`, `Task`).
-    - [ ] Komunikacja między procesami (`send`, `receive`).
-- [ ] **GenServer:**
-    - [ ] Podstawy GenServera.
-    - [ ] Tworzenie własnych serwerów.
-- [ ] **Task i Agent:**
-    - [ ] Zarządzanie stanem za pomocą `Agent`.
-    - [ ] Asynchroniczne zadania za pomocą `Task`.
+- [x] **Procesy:**
+    - [x] Tworzenie procesów (`spawn`, `Task`).
+    - [x] Komunikacja między procesami (`send`, `receive`).
+- [x] **GenServer:**
+    - [x] Podstawy GenServera.
+    - [x] Tworzenie własnych serwerów.
+- [x] **Task i Agent:**
+    - [x] Zarządzanie stanem za pomocą `Agent`.
+    - [x] Asynchroniczne zadania za pomocą `Task`.
 - [ ] **Supervisory Trees:**
     - [ ] Tworzenie drzew nadzorujących.
     - [ ] Strategie restartu procesów.
