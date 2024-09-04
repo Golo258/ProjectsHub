@@ -81,8 +81,73 @@ defmodule Concepts.Collections do
     tuple = {1, :ok, "circus"}
     tuple_element = elem(tuple, 1)
     IO.puts("Tuple element on 1 index: #{tuple_element}")
-    #change element on index
+    # change element on index
     changed_tup = put_elem(tuple, 1, :discover)
-    IO.puts("Tuple element on 1 index after change: #{elem(changed_tup,1)}")
+    IO.puts("Tuple element on 1 index after change: #{elem(changed_tup, 1)}")
+  end
+
+  def other_tuple_operations(pattern_matching_type) do
+    accepted_reason = {:accepted, "is accepted", 202, :GET}
+    created_reason = {:create, "created succesfully", 200, :POST}
+    # unpacking tuple
+    {type, communicate, code, _} = accepted_reason
+    method = elem(accepted_reason, 3)
+
+    IO.puts(
+      "Type value: #{type}, communicate: #{communicate} , code: #{code}, method: #{method}\n\n"
+    )
+
+    cond do
+      pattern_matching_type == :case ->
+        case_tuple_pattern_matching(accepted_reason)
+        case_tuple_pattern_matching(created_reason)
+        case_tuple_pattern_matching({:error, "Not found"})
+
+      pattern_matching_type == :with ->
+        with_tuple_pattern_matching(accepted_reason)
+        with_tuple_pattern_matching(created_reason)
+        with_tuple_pattern_matching({:error, "Not found"})
+    end
+  end
+
+  def case_tuple_pattern_matching(response) do
+    case response do
+      {:create, message, code, _method} ->
+        IO.puts("Created model #{message} | Code: #{code}")
+
+      {:accepted, message, code, _method} ->
+        IO.puts("Accepted model #{message} | Code: #{code}")
+
+      error_response ->
+        IO.puts("Unexpected reason given #{inspect(error_response)}")
+    end
+  end
+
+  def with_tuple_pattern_matching(response) do
+    with {type, message, code, method} <- response do
+      IO.puts("#{type} model #{message} | Code: #{code} | Method: #{method} ")
+    else
+      error_response -> IO.puts("Unexpected reason given #{inspect(error_response)}")
+    end
+  end
+
+  #   function_argument_pattern_matching()
+  def handle_tuple_pattern({type, method, code} = response) do
+      response_message =
+        case response do
+            {:ok, "GET", 200} ->
+                IO.puts("Model returned Code: #{code}")
+                {method, type}
+
+            {:created, "POST", 202} ->
+                IO.puts("Model created code #{code}")
+                {method, type}
+
+            error_response ->
+                IO.puts("Unexpected reason given #{inspect(error_response)}")
+                {method, type}
+        end
+
+      IO.inspect(response_message, label: "Response message ")
   end
 end

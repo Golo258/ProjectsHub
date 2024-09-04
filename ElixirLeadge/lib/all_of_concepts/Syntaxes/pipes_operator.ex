@@ -32,7 +32,3 @@ defmodule PipeOperator do
 
 end
 
-PipeOperator.parse_string()
-PipeOperator.list_operation()
-PipeOperator.file_operation()
-

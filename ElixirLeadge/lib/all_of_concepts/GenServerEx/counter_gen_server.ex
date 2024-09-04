@@ -31,8 +31,4 @@ defmodule Counter do
     end
 end
 
-Counter.start_link(0)
-Counter.increment()
-Counter.increment()
-IO.puts(Counter.get_count())
 

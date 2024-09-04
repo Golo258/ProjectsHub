@@ -53,4 +53,3 @@ defmodule OrderManager do
   end
 end
 
-OrderManager.start()

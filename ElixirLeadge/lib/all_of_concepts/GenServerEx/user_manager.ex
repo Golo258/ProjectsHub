@@ -92,6 +92,3 @@ defmodule UserManager do
   end
 end
 
-# running server
-{:ok, _pid} = UserManager.start_link("static/users.json")
-IO.inspect(UserManager.get_user(1))

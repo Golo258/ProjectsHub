@@ -93,5 +93,4 @@ defmodule ServerRunner do
     def run do
         {:ok, _pid} = CustomGenServer.start_link(:inital_state)
     end
-
 end

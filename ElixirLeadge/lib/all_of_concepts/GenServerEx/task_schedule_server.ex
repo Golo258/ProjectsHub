@@ -1,8 +1,8 @@
-defmodule User do
+defmodule ScheduleUser do
     defstruct [:id, :name, :email]
 end
 
-defmodule UserManager do
+defmodule UserScheduleManager do
     use GenServer
     alias Jason, as: JSON
     @module __MODULE__
@@ -79,7 +79,7 @@ defmodule UserManager do
     defp process_users(data) do
         data
         |> Enum.map(fn %{"id" => id, "name" => name, "email" => email} ->
-            %User{id: id, name: name, email: email}
+            %ScheduleUser{id: id, name: name, email: email}
         end)
         |> Enum.into(%{}, &{&1.id, &1})
     end
@@ -94,7 +94,3 @@ defmodule UserManager do
         end
     end
 end
-
-# Running server
-{:ok, _pid} = UserManager.start_link("static/users.json")
-IO.inspect(UserManager.get_user(1))
