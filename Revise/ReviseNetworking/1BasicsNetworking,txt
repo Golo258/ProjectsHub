@@ -1,0 +1,101 @@
+
+- **Model OSI i TCP/IP**
+  - 7-warstwowy model OSI i 4-warstwowy model TCP/IP.
+  - Protokoły na poszczególnych warstwach (np. Ethernet, IP, TCP, UDP, HTTP).
+  	
+Model OSI (7-warstwowy)
+	Teoretyczny model, dzieli proces komunikacji sieciowej na 7 warstw
+	Warstwy komunikują się między sobą. Pomaga zrozumieć i zarządzać komunikacją modułowo
+
+	Zadania | Przykłądy | Funkcja
+	1. Aplikacji - Application layer
+		Task: Zapewnia interface miedzy aplikacjami usera a siecią. 
+			Właściwa komunikacja usera z siecia
+
+		Ex: HTTP(browsers), FTP(file transfer), SMTP(mail)
+		Fun: Zapewnia usługi sieciowe bezposrednio do aplikacji usera
+
+	2. Prezentacja - Presentation layer
+		Task: Odpowiada za przekształcanie danych do formatu zrozumiałego dla aplikacji
+			Kompresja, Szyfrowanie, Deszyfrowanie
+
+		Ex: TLS/SSL(szyfrowanie) JPEG, PNG(file formats)
+		Fun: Konwersja i bezpieczeństwo danych
+
+	3. Sesji - Session Layer
+		Task: Zarządzanie sesjami miedzy aplikacjami na 2 urządzeniach
+			Umożliwia nawiązywanie, utrzymywanie, kończenie sesji
+
+		EX: RLC, PPTP
+		Fun: Synchronizacja i zarządzanie dialogiem miedzy aplikacjami
+
+	4. Transportowa - Transport Layer
+		Task: Niezawodna transmisja danych miedzy urządzeniami 
+			Dzieli na segmenty i zapewnia uporządkowane dostarczenie, kontrolę błędów
+
+		EX: TCP, UDP
+		FUn: Niezawodne przesyłanie danych (TCP), szybki ale bez gwarancji dostarczenia (UDP)
+
+	5. Sieciowa - Network Layer
+		Task: Zarzadzanie ruchem sieciowym, adresowanie i routing pakietów (dostarczenie do odbiorcy)
+	
+		Ex: IP(Internet Protocol), ICMP(ping)
+		Fun: Trasowanie, Routing pakietów danych przez różne sieci
+
+	6. Łącza danych - Data Link Layer
+		Task: Transmisja danych miedzy bezpośrednio połączonymi urzadzeniami
+			Dodaje nagłówki - adres MAC, pomagającej w lokalnej komunikacji
+
+		Ex: Ethernet, Wi-Fi
+		Fun: Bezbłedna transmisja danych miedzy urzadzeniami na poziomie fizycznym
+
+	7. Fizyczna - Physical Layer
+		Task: Fizyczne połączenie miedzy urządzeniami
+			Transmisja sygnałów elektr, optycznych, radiowych
+
+		Ex: Przewody (Ethernet), światłowód, radiowe (Wi-Fi), karty sieciowe
+		Fun: Konwersja danych na sygnały, przesyłanie i odbiór 
+
+Model TCP/IP (4-warstwowy)
+	Model TCP/IP jest bardziej praktycznym modelem i jest standardem używanym w internecie. Ma mniej warstw niż OSI, ale pełni podobną funkcję. Skupia się na protokołach używanych w komunikacji internetowej.
+
+Warstwy modelu TCP/IP:
+	Warstwa Dostępu do Sieci (Network Interface Layer)
+		Zadanie: Odpowiada za fizyczne połączenie z siecią, podobnie jak warstwy fizyczna i łącza danych w modelu OSI.
+		Przykłady: Ethernet, Wi-Fi, PPP (Point-to-Point Protocol).
+		Funkcja: Zarządzanie fizyczną transmisją danych do i z urządzenia.
+
+Warstwa Internetowa (Internet Layer)
+
+	Zadanie: Odpowiada za adresowanie i przesyłanie danych między sieciami, podobnie jak warstwa sieciowa w modelu OSI.
+	Przykłady: IP (Internet Protocol), ICMP (ping), ARP (Address Resolution Protocol).
+	Funkcja: Przesyłanie danych pomiędzy urządzeniami w różnych sieciach.
+
+Warstwa Transportowa (Transport Layer)
+	Zadanie: Zarządza komunikacją między dwoma urządzeniami i odpowiada za niezawodną transmisję danych. Odpowiada za podział danych na segmenty oraz kontrolę błędów.
+	Przykłady: TCP (Transmission Control Protocol), UDP (User Datagram Protocol).
+	Funkcja: Zapewnienie bezpiecznego lub szybkiego przesyłania danych (TCP zapewnia kontrolę błędów i retransmisję, UDP jest szybki, ale bez gwarancji).
+
+Warstwa Aplikacji (Application Layer)
+	Zadanie: Odpowiada za komunikację z aplikacjami i dostarczenie usług dla użytkownika, podobnie jak warstwa aplikacji w modelu OSI.
+	Przykłady: HTTP (strony WWW), FTP (transfer plików), DNS (rozwiązywanie nazw domenowych).
+	Funkcja: Dostarczanie usług bezpośrednio użytkownikowi (przeglądanie internetu, wysyłanie e-maili, pobieranie plików).
+	Różnice między modelami OSI i TCP/IP
+
+Liczba warstw: OSI ma 7 warstw, TCP/IP ma 4 warstwy.
+	W modelu TCP/IP warstwa aplikacji łączy funkcje trzech warstw OSI (Aplikacji, Prezentacji i Sesji), a warstwy fizyczna i łącza danych są połączone w warstwę dostępu do sieci.
+
+	Zastosowanie: Model OSI jest bardziej teoretyczny i służy głównie do zrozumienia procesów komunikacji sieciowej. Model TCP/IP jest natomiast standardem de facto w praktycznym zastosowaniu (internet, sieci LAN).
+
+	Protokół transportowy: W TCP/IP często używa się protokołów TCP lub UDP, natomiast OSI może teoretycznie korzystać z dowolnego protokołu transportowego.
+
+Przykłady protokołów w modelu OSI i TCP/IP
+	Warstwa fizyczna (OSI): Ethernet, Wi-Fi (sygnały, nośniki fizyczne).
+	
+	Warstwa łącza danych (OSI): Ethernet, Wi-Fi (adres MAC).
+	
+	Warstwa sieciowa (OSI, TCP/IP): IP (adresacja, routing).
+	
+	Warstwa transportowa (OSI, TCP/IP): TCP, UDP (kontrola przepływu, niezawodność).
+	
+	Warstwa aplikacji (OSI, TCP/IP): HTTP, FTP, SMTP, DNS (usługi dla aplikacji).
