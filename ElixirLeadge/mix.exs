@@ -21,7 +21,8 @@ defmodule ElixirLeadge.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-        {:jason, "~> 1.2"}
+      {:jason, "~> 1.2"},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 end

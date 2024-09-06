@@ -55,16 +55,16 @@
 - [ ] **Podstawy OTP:**
     - [ ] Architektura OTP i jej komponenty.
 - [ ] **GenServer i Supervisors:**
-    - [ ] Zaawansowane wzorce projektowe z użyciem GenServer.
-    - [ ] Tworzenie i zarządzanie Supervisorami.
+    - [x] Zaawansowane wzorce projektowe z użyciem GenServer.
+    - [x] Tworzenie i zarządzanie Supervisorami.
 - [ ] **Application:**
     - [ ] Tworzenie aplikacji OTP.
     - [ ] Start i zatrzymywanie aplikacji.
 
 ## 6. Testowanie
-- [ ] **ExUnit:**
-    - [ ] Tworzenie testów jednostkowych.
-    - [ ] Testowanie z użyciem mocków i stubbów.
+- [x] **ExUnit:**
+    - [x] Tworzenie testów jednostkowych.
+    - [x] Testowanie z użyciem mocków i stubbów.
 - [ ] **Property-Based Testing:**
     - [ ] Testowanie z wykorzystaniem `StreamData`.
 
