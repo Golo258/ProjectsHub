@@ -137,8 +137,3 @@
 - [ ] **Releases:**
   - [ ] Tworzenie i zarządzanie wydaniami aplikacji.
 
----
-
-## Notatki Dodatkowe
-
-- Jeśli jesteś zainteresowany, warto również opanować podstawy **Phoenix** w kontekście budowania aplikacji webowych oraz **Ecto** do zarządzania bazami danych, jednak priorytetem mogą być bardziej ogólne i zaawansowane narzędzia, których możesz używać w Nokii.
