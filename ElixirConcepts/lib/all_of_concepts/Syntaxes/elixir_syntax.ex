@@ -14,6 +14,7 @@ defmodule Concepts.ElixirSyntax do
       value = number
       # return this value
       value
+      Enum.
     end
 
     @doc """
