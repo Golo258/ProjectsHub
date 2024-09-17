@@ -1,0 +1,73 @@
+1. Podstawy Terminala i Komend
+	Podstawowe komendy: ls, cd, cp, mv, rm, mkdir, rmdir, touch
+	Zarządzanie plikami: find, grep, diff, file
+		find: - szukanie plikow i katalogow
+			nazwa pliku:
+				find /katalog -name one.txt
+			rozmiar pliku:
+				find /katalog -type f -size +1M
+			czas modyfikacji:
+				find /katalog -mtime -8 
+			inne:
+				-empty | -regex | -readable
+
+		grep: - kontent w plikach 
+			grep 
+				-i - ignore letter capitalization
+				-r - recursive
+				-n - line number
+				   "pattern"  /catalog
+				   
+
+	Uprawnienia: chmod, chown, chgrp, umask
+	Zarządzanie procesami: ps, top, htop, kill, pkill, nice, renice
+
+2. Zarządzanie Pakietami
+	Debian/Ubuntu: apt, apt-get, dpkg
+	Instalacja: sudo apt install <package>
+	Usuwanie: sudo apt remove <package>
+	Aktualizacja: sudo apt update, sudo apt upgrdae
+	Red Hat/CentOS: yum, dnf, rpm
+	Instalacja: sudo dnf install <package>
+	Usuwanie: sudo dnf remove <package>
+	Aktualizacja: sudo dnf update
+3. Skrypty Bash
+	Zmienne: Definiowanie i używanie zmiennych (VAR=value, $VAR)
+	Pętle: for, while, until
+	Warunki: if, else, elif, case
+	Funkcje: Definiowanie i używanie funkcji
+	Wejście/Wyjście: read, echo, printf
+	Operacje na plikach: Czytanie i zapisywanie danych do plików
+4. Zarządzanie Użytkownikami i Grupami
+	Tworzenie i usuwanie użytkowników: useradd, usermod, userdel
+	Zarządzanie grupami: groupadd, groupdel, gpasswd
+	Zarządzanie hasłami: passwd
+	Przydzielanie uprawnień: sudo, visudo
+5. Konfiguracja Systemu
+	Pliki konfiguracyjne: /etc/fstab, /etc/hosts, /etc/network/interfaces
+	Usługi: systemctl, service, journalctl
+	Zarządzanie usługami: systemctl start <service>, systemctl stop <service>, systemctl restart <service>
+6. Monitorowanie i Diagnostyka
+	Monitorowanie systemu: top, htop, vmstat, iostat
+	Zarządzanie dziennikami: tail, less, grep na plikach logów w /var/log
+	Diagnostyka sieci: ping, netstat, ss, traceroute, ifconfig, ip
+7. Bezpieczeństwo
+	Uprawnienia plików: chmod, chown, chgrp
+	Zapory ogniowe: ufw, iptables
+	Szyfrowanie: gpg, openssl
+8. Automatyzacja i Zdalne Zarządzanie
+	Cron i atd: crontab, at, atd
+	Zdalne połączenia: ssh, scp, rsync
+	Scripting i automatyzacja: Tworzenie skryptów do automatyzacji rutynowych zadań
+9. Zarządzanie Zasobami
+	System plików: df, du, mount, umount
+	Zarządzanie dyskami: fdisk, parted, lsblk, blkid
+10. Wersjonowanie i Repozytoria
+	Git: git init, git clone, git commit, git push, git pull
+	Repozytoria: Dodawanie i usuwanie repozytoriów, aktualizowanie listy pakietów
+Praktyczne Ćwiczenia
+	Tworzenie skryptów: Napisz skrypty automatyzujące codzienne zadania.
+	Zarządzanie plikami: Eksperymentuj z różnymi operacjami na plikach.
+	Zarządzanie użytkownikami: Dodaj i usuń użytkowników oraz grupy.
+	Monitorowanie systemu: Regularnie sprawdzaj stan systemu i monitoruj zasoby.
+	Kopia zapasowa: Skonfiguruj i testuj mechanizmy tworzenia kopii zapasowych.
