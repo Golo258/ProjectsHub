@@ -19,3 +19,34 @@ Example VScode installation:
 	4. apt install code
 
 #----------------------------
+Environment variables:
+	printenv - show all env vars
+		printenv key - show value of variable
+
+	Settings env var:
+		export <NAME>='value'
+	Removal:
+		unset <NAME>
+
+Shell Variable:
+	Setting:
+		<NAME>='value'
+
+Setting bashrc:
+	bashrc - booting script used by bash
+		pwd - ~/.bashrc
+		after update : source ~/.bashrc
+	Used to configure and personalize bash session behaviour 
+		Aliases
+			alias gs='git status'
+		Env vars
+			export PATH=$PATH:/usr/local/my_custom_tools
+		Functions
+			function mkcd() {
+				mkir -p "$1"
+				cd "$1"
+			}
+
+
+
+

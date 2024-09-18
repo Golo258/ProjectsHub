@@ -20,17 +20,76 @@
 				   
 
 	Uprawnienia: chmod, chown, chgrp, umask
+		Kontrolowanie zabezpieczen plikow/katalogow
+			Dostep/Modyfikacj/Wykoywanie
+		Chmod - change mode - zmiana uprawnien plikow /katalogow
+			r - read  | w - write | x -execute
+			u - owner | g - group | o - others 
+
+			chmod u+wx file - dodanie uprawnien do usera
+			chmod g-r file - usuniecie uprawnien grupie
+
+			lub liczbowo r -4 | w - 2 | x - 1
+
+		Chown - change owner - zmienia wlasciiela pliku
+			chown user file.txt
+
+		Chgrp - change group - zmiana grupy pliku
+			chgrp group file.txt
+
+		umask - ustawianie domyslnych ustawien nowych pl/kat
+			umask  - show how its set now
+			umsk 702 - set new settings
+
 	Zarządzanie procesami: ps, top, htop, kill, pkill, nice, renice
+		ps  - informacje o procesach
+			ps aux - szczegolowe info, wszystkie procesyt
+			kolumny:
+				PID – ID procesu.
+				USER – Użytkownik uruchamiający proces.
+				CPU – Użycie procesora.
+				MEM – Użycie pamięci.
+	top/htop - interfacy graficzny zarzadzajace procesami
+	 htop sygnaly
+	 	SIGTERM (15): Grzeczne zakonczenie, proces moze zrobic clean i save files 
+		SIGKILL (9): wymuszone zakonczenie. 
+		SIGHUP (1): hangup - zawieszenie procesu
+		SIGSTOP/SIGCONT:
+			 stop - zatrzymanie / continues - wznowienie
+
+	kill- zatrzymywanie procesow
+		kill 1234 - 1234- pid  procesu
+		kill -9 1234 - wymuszone 
+	pkill - konczenie procesu na podstawie nazwy
+		pkill firefox
+
+	nice - uruchamianie z priorytetem
+		- 20 (najwyzszy proiorytet) do 19 (najnizszy)
+		nice -n 5 skrypt.sh
+
+	renice - zmiana priorytetu instejacego procesu
+		renice 10 1234
+
 
 2. Zarządzanie Pakietami
 	Debian/Ubuntu: apt, apt-get, dpkg
-	Instalacja: sudo apt install <package>
-	Usuwanie: sudo apt remove <package>
-	Aktualizacja: sudo apt update, sudo apt upgrdae
-	Red Hat/CentOS: yum, dnf, rpm
-	Instalacja: sudo dnf install <package>
-	Usuwanie: sudo dnf remove <package>
-	Aktualizacja: sudo dnf update
+		apt - menadzer pakietw, apt jest nowszy 
+			apt-get install <pakiet> - instalowanie pakietu
+			apt-get update  - aktualizacja listy dostepnych pakietow
+			apt-get upgrade - akutalizuje systemu, wszystkich pakietow
+			apt remove <pakiet> - usuwanie pakietu, bez jego konfiguracji
+			apt purge <pakiet> - usuwa wraz z konfiguracja
+			apt autoremove - usuwa niepotrzebne pakiety
+
+		apt dziala w oparciu o repozytoria:
+			/etc/apt/sources.list.d/
+			
+		dpkg - niskopiozmowe zarzadzanie pakietami/pliki .deb
+			dpkg -i <plik.deb> - instalowanie
+			dpkg -r .. - usuwanie
+			naprawianie problem po instalacji
+				apt --fix-broken install
+
 3. Skrypty Bash
 	Zmienne: Definiowanie i używanie zmiennych (VAR=value, $VAR)
 	Pętle: for, while, until
