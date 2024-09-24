@@ -1,0 +1,20 @@
+[
+  {
+    "sensor_id": 8,
+    "name": "center",
+    "temperature": "20^C",
+    "humidity": "normal"
+  },
+  {
+    "sensor_id": 9,
+    "name": "right",
+    "temperature": "17^C",
+    "humidity": "medium"
+  },
+  {
+    "sensor_id": 10,
+    "name": "left",
+    "temperature": "19^C",
+    "humidity": "high"
+  }
+]

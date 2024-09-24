@@ -1,0 +1,6 @@
+awscli
+boto3
+asyncio
+aiohttp
+pandas
+matplotlib

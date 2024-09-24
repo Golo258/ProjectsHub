@@ -65,3 +65,40 @@
 
 ### Jenkins CI/CD
 - [Jenkins Documentation](https://www.jenkins.io/doc/)
+
+
+#------------------------
+Sieci:
+	1. Podstawowe protokoły sieciowe:
+		TCP/IP i UDP: Zrozumienie, jak TCP i UDP są używane w kontekście sieci telekomunikacyjnych. Jak działa mechanizm retransmisji, jak realizowane jest zestawienie połączeń w TCP (3-way handshake), oraz kiedy i dlaczego UDP jest używany w telekomunikacji.
+		DNS: Jak działają zapytania DNS, różnice między DNS A, CNAME, MX itp.
+		ICMP: Do czego służy (np. ping, traceroute).
+	➜ Przykładowe pytanie: Jak wygląda komunikacja przy otwieraniu strony WWW od zapytania DNS po zestawienie sesji TCP?
+
+	2. IP i sieci:
+		Adresacja IPv4 i IPv6: Jak działa adresacja, maski podsieci, podstawy routingów.
+		NAT (Network Address Translation): Jak sieci prywatne są tłumaczone na publiczne adresy IP.
+		Routing: Podstawowe mechanizmy routingowe, tablice routingu, różnice między routingiem statycznym a dynamicznym.
+	➜ Przykładowe pytanie: Jak działa NAT i dlaczego jest niezbędny w sieciach IPv4?
+
+	3. Telekomunikacja i sieci komórkowe:
+		LTE / 5G: Zrozumienie architektury sieci RAN (Radio Access Network), podstawowych pojęć jak eNodeB, gNodeB, EPC (Evolved Packet Core), NG Core.
+		VoLTE i VoIP: Jak działa transmisja głosu w sieciach LTE? Zrozumienie protokołów SIP (Session Initiation Protocol) i RTP (Real-Time Protocol).
+		QoS (Quality of Service): Jak priorytetyzowane są różne typy ruchu (np. dane, głos, wideo).
+	➜ Przykładowe pytanie: Jak działa połączenie VoLTE i jakie są główne różnice między VoLTE a tradycyjnymi połączeniami głosowymi?
+
+	4. Bezpieczeństwo sieci:
+		SSL/TLS: Zrozumienie podstaw szyfrowania komunikacji.
+		IPSec, VPN: Jak działają wirtualne sieci prywatne oraz szyfrowanie ruchu w IPSec.
+		Firewall, ACL (Access Control Lists): Jak zarządzać regułami ruchu w sieci.
+	➜ Przykładowe pytanie: Jak działa protokół IPSec i do czego służy?
+
+	5. Systemy operacyjne:
+		Linux: Przygotuj się na pytania dotyczące podstawowych komend Linux, jak zarządzać użytkownikami, procesami, oraz jak monitorować sieć i serwisy (komendy typu netstat, iptables, tcpdump, ss, ip route).
+		Skrypty Bash: Pisanie prostych skryptów, które mogą zarządzać siecią (np. automatyzowanie konfiguracji, sprawdzanie połączeń).
+	➜ Przykładowe pytanie: Napisz skrypt w Bashu, który pinguje wybrany serwer co 5 sekund i zapisuje wyniki do logu.
+
+	6. Narzędzia sieciowe:
+	Wireshark, tcpdump: Jak przechwytywać i analizować ruch sieciowy.
+	Ping, traceroute: Narzędzia diagnostyczne do sprawdzania połączeń.
+	➜ Przykładowe pytanie: Jak za pomocą tcpdumpa przechwycić ruch na porcie HTTP (
