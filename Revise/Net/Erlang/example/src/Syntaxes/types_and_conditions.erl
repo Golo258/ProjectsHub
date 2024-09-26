@@ -1,4 +1,4 @@
--module(basics).
+-module(types_and_conditions).
 -author("Czesław").
 
 %% function define with lowercase with _
@@ -8,18 +8,13 @@
 -export([run/0,
   add_numbers/3,
   types/0,
-  iterate/1,
-  collections/0,
   statement/0,
-  map_collection/0,
-  tuple_collection/0,
   match_example/1,
   check_pattern/2,
   pattern_matching/0,
-  list_comprehensions/0,
-  exceptions_handling/0
+  exceptions_handling/0,
+  operators_differences/0
 ]).  % define which function will be possible to import /2 -artis (nr of arguments)
-
 
 run() ->
   DoubleSum = add_numbers(2, 5, 7),
@@ -42,29 +37,8 @@ types() ->
   io:format("Int numb: ~B | Float: ~.2f | Atom: ~p | Head ~p | Tail: ~p",
     [IntNumb, FloatNumber, SimpleAtom, Head, Tail]),
 
-  collections().
 
 
-collections() ->
-  SimpleList = [1, 23, 5],
-  MappedList = lists:map(fun(Number) -> Number * 2 end, SimpleList),
-  io:format("Mapped list: ~p ~n", [MappedList]),
-  %% execute function for each elements without output
-  lists:foreach(fun(Element) -> io:format("~p~n", [Element]) end, [SimpleList]),
-  %% filter list by condition
-  GreaterNumbers = lists:filter(fun(Element) -> Element > 2 end, SimpleList),
-  io:format("Filtered list: ~p ~n", [GreaterNumbers]),
-  iterate(SimpleList).
-
-%% Erlang doesn't have loops, but iteration is done by recursion
-iterate(List) ->
-  case List of
-    [] ->
-      ok;
-    [Head, Tail] ->
-      io:format("Element: ~p ~n", [Head]),
-      iterate(Tail)
-  end.
 
 %% If syntax
 %%    if
@@ -89,33 +63,6 @@ statement() ->
             end,
   io:format(Message, [Number]).
 
-map_collection() ->
-%%  #{Pairs => Key,}
-  Person = #{name => "Alice", age => 30, married => true},
-  PersonName = maps:get(name, Person),
-  PersonCivilStatus = maps:get(married, Person),
-  if
-    is_boolean(PersonCivilStatus) -> io:format("Person: ~p, is_married: ~p ", [PersonName, PersonCivilStatus]);
-    true -> io:format("is not boolean")
-  end,
-%%  Add element or change it
-  ChangedPerson = maps:put(city, "Cracow", Person),
-  io:format("~n Person city: ~p", [maps:get(city, ChangedPerson)]),
-%% Remove item
-  PersonWithoutName = maps:remove(name, ChangedPerson),
-%%  Iterating
-  maps:fold(
-    fun(Key, Value, _) ->
-      io:format("Key ~p | Value: ~p ", [Key, Value])
-    end,
-    ok, PersonWithoutName
-  ).
-
-tuple_collection() ->
-%%  const length of argument, used to group data
-  Data = {1, "Alice", true},
-  DataName = element(2, Data), % first index = 1
-  io:format("Data: ~p | NameData: ~p", [Data, DataName]).
 
 %% using pattern matching as arguments
 match_example({Numb, Value}) ->
@@ -141,7 +88,7 @@ pattern_matching() ->
   match_example({1, 2}),
 %%  Regex additionally
 %%  FUnctions: re:run/2 -matching regular text content,
-  Pattern = "^[A-Za-z]{3}",  % Wzór: trzy wielkie litery na początku
+  Pattern = "^[A-Za-z]{3}",
   Content1 = "ABC is a sample string.",
   check_pattern(Content1, Pattern),
 %%  re:split - splitting content based on pattern
@@ -152,21 +99,6 @@ pattern_matching() ->
 %%  re:replace - replacing matching in content
   NewText = re:replace(Content1, "is", "isn't", [global]),
   io:format("New text ~p ~n", [NewText]).
-
-list_comprehensions() ->
-%% 1. function done for each element. 2. generator expression, 3. filtering conditions
-%%    Syntax: [Expression || Pattern < List, Conditions]
-
-%%  Map list values
-  Numbers = [1, 5, 12, 62],
-  DoubledNumbers = [Numb * 2 || Numb <- Numbers, Numb > 2],
-%% Filter list values
-  EvenNumbers = [Numb || Numb <- Numbers, Numb rem 2 == 0],
-%% Iteration through tuples and getting values
-  Persons = [{john, 25}, {jane, 51}, {mark, 12}],
-  NameList = [Name || {Name, _Age} <- Persons],
-  io:format("Doubled numbers: ~p | ~n Even Numbers: ~p ~n| Names: ~p | ~n",
-    [DoubledNumbers, EvenNumbers, NameList]).
 
 
 %% Exceptions handling
@@ -181,15 +113,24 @@ exceptions_handling() ->
   FirstNumb = 12,
   SecondNumber = 0,
   try
-      Result = FirstNumb / SecondNumber,
-      io:format("Result: ~p", [Result])
+    Result = FirstNumb / SecondNumber,
+    io:format("Result: ~p", [Result])
   catch
-      error:badarith ->
-          io:format("Error: Bad argument for division ~n");
-        _:_ ->
-          io:format("An unexpected error occurred~n"),
-          undefined
+    error:badarith ->
+      io:format("Error: Bad argument for division ~n");
+    _:_ ->
+      io:format("An unexpected error occurred~n"),
+      undefined
   end.
+
+operators_differences() ->
+  IsEqual = 1 == 1.0, % check equality without checking types
+  IsEqualType = 1 =:= 1.0, % check equality with types
+  IsNotEqualType = 1 =/= 1.0,
+%%  IsNotEqual = 1 != 2.0
+  ResultList = [IsEqual, IsEqualType, IsNotEqualType],
+  io:format("ResultList: ~p", [ResultList]).
+
 
 
 %%   c(basics), basics:exceptions_handling().

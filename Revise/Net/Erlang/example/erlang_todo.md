@@ -34,38 +34,35 @@
     - [x] Wysyłanie i odbieranie wiadomości.
     - [x] Zrozumienie komunikacji między procesami.
 
-- [ ] **Obsługa błędów**
-    - [ ] Użycie `try/catch`.
-    - [ ] Zrozumienie strategii "let it crash".
+- [x] **Obsługa błędów**
+    - [x] Użycie `try/catch`.
+    - [x] Zrozumienie strategii "let it crash".
 
 - [x] **Wykorzystanie bibliotek**
     - [x] Wykorzystanie biblioteki `lists`, `maps`, `string` itp.
-    - [ ] Rozumienie, jak dodać zewnętrzne biblioteki przy pomocy `rebar3`.
+    - [x] Rozumienie, jak dodać zewnętrzne biblioteki przy pomocy `rebar3`.
 
 ## Zaawansowane koncepcje
 
-- [ ] **Programowanie współbieżne**
-    - [ ] Zrozumienie modelu aktora.
-    - [ ] Użycie GenServer.
+- [x] **Programowanie współbieżne**
+    - [x] Zrozumienie modelu aktora.
+    - [x] Użycie GenServer.
 
-- [ ] **Tworzenie aplikacji**
-    - [ ] Tworzenie aplikacji Erlang przy użyciu `rebar3`.
-    - [ ] Zrozumienie struktury aplikacji.
+- [] **Tworzenie aplikacji**
+    - [x] Tworzenie aplikacji Erlang przy użyciu `rebar3`.
+    - [x] Zrozumienie struktury aplikacji.
 
 - [ ] **Testowanie**
     - [ ] Wprowadzenie do testów jednostkowych z użyciem `EUnit` i `Common Test`.
 
 ## Dobre praktyki
 
-- [ ] **Użycie stylu kodowania**
-    - [ ] Zrozumienie konwencji nazw i stylu kodowania.
-    - [ ] Dokumentowanie kodu za pomocą komentarzy.
+- [x] **Użycie stylu kodowania**
+    - [x] Zrozumienie konwencji nazw i stylu kodowania.
+    - [x] Dokumentowanie kodu za pomocą komentarzy.
 
-- [ ] **Wersjonowanie i kontrola wersji**
-    - [ ] Użycie systemu kontroli wersji (np. Git).
-    - [ ] Zarządzanie wersjami kodu.
+- [x] **Wersjonowanie i kontrola wersji**
+    - [x] Użycie systemu kontroli wersji (np. Git).
+    - [x] Zarządzanie wersjami kodu.
 
-## Źródła i dokumentacja
 
-- [ ] **Oficjalna dokumentacja Erlang**: https://www.erlang.org/docs
-- [ ] **Książki i zasoby online**: np. „Programming Erlang” autorstwa Joe Armstronga.

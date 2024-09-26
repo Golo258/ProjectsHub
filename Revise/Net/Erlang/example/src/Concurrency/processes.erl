@@ -13,6 +13,12 @@
   dispatcher/1,
   init_work/0
 ]).
+%% Actor model:
+%%  its an autonomous proces, which perform its job sumultanously with other processes
+%%  can only comunicate by messages
+%%  each actor has its own mailbox with which collect messages
+%%  can create others actors, send to them messages and manage them
+%%  each process in erlang is an actor - isolated unit
 
 run() ->
   Pid = spawn(processes, simple_function, []),
@@ -42,10 +48,6 @@ receiver() ->
 
 %% Example how to use this mechanisms
 %% Simulation of task management system
-
-
-
-%% Worker - receive task, perform it and send result to dispatcher
 worker() ->
   receive
     {DispatcherPid, Task} ->
@@ -80,7 +82,5 @@ init_work() ->
   Dispatcher ! {client, 5},
   Dispatcher ! {client, 10},
   Dispatcher ! {client, 23}.
-
-
 
 %%   c(processes), processes:init_work().
