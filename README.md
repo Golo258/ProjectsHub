@@ -3,54 +3,58 @@
 This repository is a collection of my knowledge and practice from various fields, including Backend, Frontend, Testing, and more. It serves as a place where I store coding revisions and small projects using different tools and technologies.
 
 ## Table of Contents
-- [ElixirLeadge](#elixirleadge)
-- [Revise](#revise)
-  - [ReviseDjango](#revisedjango)
-  - [ReviseDocker](#revisedocker)
-  - [ReviseJS](#revisejs)
-  - [ReviseJava](#revisejava)
-  - [RevisePython](#revisepython)
-  - [ReviseSQL](#revisesql)
-  - [ReviseTests](#revisetests)
-  - [ReviseReact](#revisereact)
-- [Projects](#projects)
-  - [BackDjango](#backdjango)
-  - [FrontVue](#frontvue)
 
-## ElixirLeadge
-A collection of concepts, syntax, and examples of usage in Elixir.
+  - [JavaPR](#java)
+  - [PythonPR](#python)
+  - [JavaScriptPR](#js)
+  - [NetKnowledge](#net)
+  - [TestsKnowledge](#tests)
+  - [UsefulTools](#tools)
+  - [ElixirPR](#elixir)
+  - [ErlangPR](#erlang)
 
-## Revise
-A comprehensive review of various programming concepts to stay familiar with a broad range of topics.
 
-### ReviseDjango
-A small review of Django concepts such as models, migrations, creating templates, and more.
-
-### ReviseDocker
-Knowledge about creating Docker containers, images, and related tasks.
-
-### ReviseJS
-A project focused on practicing JavaScript by creating scripts.
-
-### ReviseJava
+### Java
 A collection of Java knowledge, including syntax, frameworks, and testing practices.
+And example project like TaskManager tool to manage task delivery and management
 
-### RevisePython
-Small projects to get used to processes in Python and more.
+### Python
+## Small projects to get used with using 
+    - API - asyncio 
+    - AWS - connection and creation of instances
+    - DataBases - connection and query execution 
+    - DjangoFramework - example projects
+    - HackerRank - collection of finished task on this platform
+    - OOP - creating classes, polimorphism and others
+    - Reservation System - Example project to manage reservations
 
-### ReviseSQL
-Creation of SQL queries with practical examples.
+### JS
+A project focused on practicing JavaScript by creating scripts.
+## Projects:
+    - [React] - usage of React framework with examples
+    - [VueJs] - get familiary with framework syntaxes
+    - [Other] - simple project script
 
-### ReviseTests
-Tests written in Python, utilizing libraries like Selenium, Brave, and more.
+### Net
+Network knowledge with concentration on:
+## 
+    - TCP/IP - model examplanation
+    - LTE/5G - model and components examplanation
 
-### ReviseReact
-Getting familiar with the challenging (for me) frontend framework, React.
+### Tests
+##
+    - Tests written in Python, utilizing libraries like Selenium, Brave, and more.
 
-## Projects
+### Tools
+##
+    - Using Docker commands to create and manage images and containers
+    - Using sql to create relations databases with mulitle tables 
 
-### BackDjango
-A simple web project implemented with user authorization.
+## Elixir
+## 
+    - A collection of concepts, syntax, and examples of usage in Elixir.
 
-### FrontVue
-A Vue.js project with examples of framework usage.
+## Erlang
+##
+    =A comprehensive review of various programming concepts to stay familiar
+        with a broad range of topics.
