@@ -1,0 +1,201 @@
+/* 1 zadanie */
+
+h1{
+  color: red;
+    
+}
+
+.special {
+    font-style: italic;
+}
+
+#main{
+    background-color: yellow;
+}
+
+/* zadanie 2 */
+/* bezposrednio wewnatrz diva */
+div > p {
+    margin: 10px;
+}
+
+/* rodzenstwo */
+h2 + li {
+    text-decoration: line-through;
+}
+/*  tego nie jestem pewien */
+span p {
+    border: 10px solid red;
+}
+
+/* Zadanie 3 */
+input[type="text"] {
+    background-color: blue;
+}
+
+[title] {
+    font-weight: bold;
+}
+.nav{
+    color: green;
+}
+
+/* Zadanie 4 */
+button:hover{
+    background-color: blue;
+}
+
+ul li:first-child{
+    color: purple;
+}
+div:nth-child(3n){
+    background-color: grey;
+}
+
+/* Zadanie 5 */
+
+h3::before{
+    content: ">";
+}
+
+p::first-line{
+    text-decoration: underline;
+}
+
+.alert::after{
+    content: "[!]";
+}
+
+/* Zadanie 6 */
+
+div > p.highlight{
+    background-color: orange;
+}
+
+ul li:first-child,
+ul  li:last-child {
+    background-color: pink;
+}
+
+span + a.link {
+    margin:20px 
+}
+/* 
+Important
+    Potomek div p 
+    wszystkie p niezależnie czy są zagnieżdzone gdziekolwiek
+    <div>
+        <p>Jestem w środku!</p> <!-- Pasuje -->
+        <span>
+            <p>Też jestem w środku!</p> <!-- Pasuje -->
+        </span>
+    </div>
+    <p>Jestem poza divem!</p> <!-- Nie pasuje -->
+
+
+Bezpośrednie dziecko 
+    div > p
+<div>
+  <p>Jestem bezpośrednim dzieckiem!</p> <!-- Pasuje -->
+  <span>
+    <p>Jestem wnukiem!</p> <!-- Nie pasuje -->
+  </span>
+</div>
+<p>Jestem poza divem!</p> <!-- Nie pasuje -->
+
+Rodzeństwo + 
+    h2 + p
+
+<h2>Jestem h2</h2>
+<p>Jestem bezpośrednio po h2!</p> <!-- Pasuje -->
+<p>Nie jestem bezpośrednio po h2!</p> <!-- Nie pasuje -->
+<div>
+  <h2>Drugi h2</h2>
+  <span></span>
+  <p>Nie jestem bezpośrednio po h2!</p> <!-- Nie pasuje -->
+</div>
+
+Ogólne rozdzeństwo
+    h2 ~ p 
+<h2>Jestem h2</h2>
+<p>Jestem blisko po h2!</p> <!-- Pasuje -->
+<span></span>
+<p>Też jestem po h2!</p> <!-- Pasuje -->
+<div>
+  <h2>Drugi h2</h2>
+  <p>Nie liczę się, bo jestem w innym drzewie!</p> <!-- Nie pasuje -->
+</div>
+
+Różnice miedzy + i > 
+
+div >p
+tylk ote elemnety które sa bezposrednio dziemi innego elementu
+nie zaleznie czy jest gdzie jest w jakim miejscu 
+
+<div>
+  <p>Bezpośrednie dziecko</p> <!-- Pasuje -->
+  <span>
+    <p>Wnuk</p> <!-- Nie pasuje -->
+  </span>
+</div>
+
+h2 + p
+tylko pierwszy element bezposrednio nastepujacy po danym elemencie 
+<h2>Nagłówek</h2>
+<p>Bezpośrednie rodzeństwo</p> <!-- Pasuje -->
+<p>Nie pasuje</p> <!-- Nie pasuje -->
+
+*/
+
+/* Zadania */
+
+/* Zadanie 1:
+Tylko <p>Pierwszy akapit po h1</p> ma być stylizowany (bezpośrednio po <h1>).
+
+Zadanie 2:
+Oba <p> po <h2> na tym samym poziomie mają być stylizowane.
+
+Zadanie 3:
+Stylizuj <span>Bezpośrednie dziecko</span> w <div>.
+
+Zadanie 4:
+Stylizuj wszystkie <li> wewnątrz <ul>, niezależnie od poziomu zagnieżdżenia.
+
+Zadanie 5:
+Stylizuj <li> bezpośrednio w <ol>, ale nie te zagnieżdżone w <ul>.
+
+Zadanie 6:
+Stylizuj tylko <h3>Zaraz po div</h3>. 
+*/
+
+/* Zadanie 1 */
+
+h1 + p {
+    /* stylizacja */
+}
+
+/* Zadanie 2 */
+h2 ~ p {
+    /* stylizacja */
+}
+
+/* Zadanie 3 */
+
+div > span {
+    /* stylizacja */
+}
+
+/* Zadanie 4 */
+
+ul li {
+    /* stylizacja */
+}
+/* Zadanie 5 */
+ol > li {
+    /* stylizacja */
+}
+
+/* Zadanie 6 */
+div + h3{
+    /* stylizacja */
+}
