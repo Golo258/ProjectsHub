@@ -476,3 +476,64 @@ IP i sieci:
 		Wysyła zapytanie do routera NAT, który ma publiczny adres IP 203.0.113.1.
 		Router NAT zamienia prywatny adres laptopa na swój publiczny adres i wysyła zapytanie do Internetu.
 		Gdy serwer WWW odpowiada, router NAT tłumaczy adres z powrotem na prywatny adres laptopa i przekazuje odpowiedź.
+
+RIP:	
+	Protokół RIP (Routing Information Protocol)
+	RIP to starszy protokół routingu oparty na algorytmie wektora odległości (Distance Vector), stosowany w małych i średnich sieciach. RIP jest prosty w konfiguracji i wdrożeniu, ale ma pewne ograniczenia, które sprawiają, że nie jest stosowany w bardziej złożonych sieciach.
+
+1. Główne cechy RIP:
+	Typ: Protokół wektora odległości.
+	Metryka: Liczba przeskoków (hop count), maksymalnie 15. Każda trasa, której liczba przeskoków wynosi 16, jest uznawana za nieosiągalną.
+	Aktualizacje: RIP wysyła aktualizacje całej tablicy routingu co 30 sekund, co zwiększa obciążenie sieci.
+	Konwergencja: Stosunkowo wolna w porównaniu do nowoczesnych protokołów routingu.
+	Limit skali: Ze względu na ograniczenie liczby przeskoków (max 15), RIP działa efektywnie tylko w małych sieciach.
+	Wersje:
+	RIP v1: Klasyczna wersja, która nie wspiera VLSM (Variable Length Subnet Masking) ani CIDR (Classless Inter-Domain Routing).
+	RIP v2: Wspiera VLSM, CIDR oraz autoryzację routingu.
+2. Działanie RIP:
+	Metoda działania: Każdy router w sieci RIP przesyła pełną tablicę routingu do swoich sąsiadów co 30 sekund. Routery aktualizują swoje tablice na podstawie informacji otrzymanych od sąsiadów.
+Algorytm: Wykorzystuje Bellmana-Forda do wyboru najlepszej trasy w oparciu o liczbę przeskoków.
+Rozgłaszanie tras: RIP używa adresu multicast 224.0.0.9 (w RIP v2) do wysyłania aktualizacji routingu.
+3. Ograniczenia RIP:
+	Liczba przeskoków: Maksymalna liczba przeskoków wynosi 15, co ogranicza skalowalność.
+Powolna konwergencja: W przypadku zmian w topologii sieci, RIP potrzebuje więcej czasu, aby zaktualizować trasy w porównaniu do nowoczesnych protokołów.
+Obciążenie sieci: Regularne wysyłanie pełnych tablic routingu co 30 sekund powoduje obciążenie sieci, nawet gdy nie ma zmian w topologii.
+4. Zalety RIP:
+	Prostota: Łatwy do skonfigurowania i wdrożenia.
+Kompatybilność: Działa na niemal każdym routerze i w małych sieciach może być efektywny.
+5. Przykład konfiguracji RIP w routerze Cisco:
+bash
+Skopiuj kod
+router rip
+ version 2
+ network 192.168.1.0
+ network 10.0.0.0
+
+
+OSPF:
+	OSPF to zaawansowany protokół routingu stanu łącza (Link State), który jest powszechnie stosowany w średnich i dużych sieciach. OSPF został zaprojektowany, aby rozwiązywać ograniczenia RIP, oferując szybkie czasy konwergencji, lepszą skalowalność i większą elastyczność w zarządzaniu siecią.
+
+1. Główne cechy OSPF:
+	Typ: Protokół stanu łącza (Link State).
+	Metryka: Koszt (cost), który jest oparty na przepustowości łącza. Im wyższa przepustowość, tym niższy koszt.
+	Konwergencja: Bardzo szybka, ponieważ routery OSPF utrzymują pełną mapę topologii sieci, dzięki czemu mogą szybko wyznaczać nowe trasy.
+	Struktura hierarchiczna: OSPF dzieli sieć na obszary (areas), co ułatwia zarządzanie dużymi sieciami. Obszar 0 jest obszarem rdzeniowym (backbone).
+	Wersja: Najczęściej używaną wersją jest OSPFv2 dla IPv4 oraz OSPFv3 dla IPv6.
+	Algorytm: OSPF używa algorytmu Dijkstra (SPF) do wyznaczania najkrótszej ścieżki.
+2. Działanie OSPF:
+	Link State Advertisement (LSA): Routery OSPF wymieniają się informacjami o stanie łączy za pomocą LSA. Każdy router wysyła informacje o swoich sąsiednich routerach do wszystkich routerów w danym obszarze.
+	LSDB (Link State Database): Każdy router utrzymuje bazę danych o stanie łączy (Link State Database), która zawiera pełną mapę topologii sieci w danym obszarze.
+	Obliczanie trasy: Na podstawie LSDB, każdy router uruchamia algorytm Dijkstra, aby obliczyć najkrótsze ścieżki do wszystkich celów.
+3. Zalety OSPF:
+	Szybka konwergencja: Zmiany w topologii są szybko propagowane, co pozwala na szybką rekonfigurację tras.
+	Skalowalność: OSPF działa dobrze w dużych sieciach dzięki podziałowi na obszary i zaawansowanej strukturze hierarchicznej.
+	Precyzyjna kontrola: Możliwość konfigurowania kosztów interfejsów, co pozwala na precyzyjne kontrolowanie tras.
+4. Obszary w OSPF:
+	Area 0 (Backbone Area): Główny obszar OSPF, który łączy wszystkie inne obszary. Każdy inny obszar musi być bezpośrednio lub pośrednio połączony z Area 0.
+	Non-backbone Areas: Pozostałe obszary, które są podłączone do rdzenia (Area 0). Wśród nich mogą być:
+	Stub Area: Obszar, który nie otrzymuje tras zewnętrznych spoza obszaru OSPF.
+	Totally Stubby Area: Obszar, który nie otrzymuje tras zewnętrznych ani tras międzyobszarowych.
+	NSSA (Not So Stubby Area): Obszar, który może importować trasy z zewnątrz, ale nadal zachowuje cechy obszaru stub.
+5. Ograniczenia OSPF:
+	Złożoność: W porównaniu do RIP, OSPF jest bardziej złożony i trudniejszy do skonfigurowania i zarządzania.
+	Wydajność w małych sieciach: OSPF może być "przeinwestowaniem" dla bardzo małych sieci, gdzie prostsze protokoły mogą wystarczyć.
